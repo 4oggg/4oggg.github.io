@@ -6,119 +6,7 @@
 <title>OpenFF7R</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-  }
-
-  #background-holder {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: black;
-  }
-
-  .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    transition: opacity 2s ease-in-out;
-    opacity: 0;
-  }
-
-  #title-container {
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 2%;
-    z-index: 2;
-  }
-
-  #title-container h1 {
-    font-weight: bold;
-    font-size: 7em;
-    color: white;
-  }
-
-  .faq-container {
-    width: 1200px;
-    min-height: 300px;
-    box-sizing: border-box;
-    padding: 20px;
-    z-index: 2;
-    position: relative;
-    margin-top: 50px;
-  }
-
-  .faq .faq-answer {
-    display: none;
-    padding: 20px;
-    margin-top: 10px;
-    word-wrap: break-word;
-    overflow-y: auto;
-    font-weight: 300;
-    font-size: 1.6em;
-  }
-
-  .faq .faq-question {
-    cursor: pointer;
-    padding: 20px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-    font-weight: 700;
-    font-size: 1.6em;
-  }
-
-  .faq .faq-question:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  #discord-link {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 3;
-  }
-
-  #discord-link img {
-    width: 50px;
-    height: auto;
-  }
-  
-  #think-link {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 3;
-  }
-
-  #think-link img {
-    width: 50px;
-    height: auto;
-  }
-  
- /* Apply styles to all 'a' elements */
-a {
-    color: #ffffff;
-    text-decoration: underline;
-    margin: 10px 0;
-    /* Do not set font-size here if you want it to inherit from the parent */
-}
-</style>
+<link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
 
@@ -135,7 +23,7 @@ a {
   <div class="faq">
     <div class="faq-item">
       <div class="faq-question">What is OpenFF7R?</div>
-      <div class="faq-answer">OpenFF7R is a project centered on modding the Final Fantasy 7 "Remake" series, colloquially referred as the 7R series. We strive to ensure that all of our modding knowledge is freely accessible, hence the open nature of the project.</div>
+      <div class="faq-answer">OpenFF7R is a project centered on modding the Final Fantasy 7 "Remake" series, colloquially referred to as the 7R series. We strive to ensure that all of our modding knowledge is freely accessible, hence the open nature of the project.</div>
     </div>
     <div class="faq-item">
       <div class="faq-question">How do I access OpenFF7R?</div>
@@ -143,7 +31,7 @@ a {
     </div>
     <div class="faq-item">
       <div class="faq-question">What can I expect?</div>
-      <div class="faq-answer">In the OpenFF7R server, we predictably discuss the Final Fantasy series of games. However, we also frequently enage in conversations about movies, TV shows, music, and technology. We try our best to foster a curious and inquisitive community, never afraid to discover something new!</div>
+      <div class="faq-answer">In the OpenFF7R server, we predictably discuss the Final Fantasy games. However, we also frequently engage in conversations about movies, TV shows, music, and technology. We try our best to foster a curious and inquisitive community, never afraid to discover something new!</div>
     </div>
     <div class="faq-item">
       <div class="faq-question">Can I learn how to mod?</div>
@@ -158,13 +46,7 @@ a {
 
 <div id="discord-link">
   <a href="https://discord.gg/v45JRfYTxj" target="_blank">
-    <img src="https://i.ibb.co/nsQPxQQ/discord-logo.png" alt="Discord">
-  </a>
-</div>
-
-<div id="think-link">
-  <a href="https://normie.lol" target="_blank">
-    <img src="https://i.ibb.co/PGm7KLS/twitter-think-small.png" alt="Normie">
+    <img src="https://files.catbox.moe/n6x3en.png" alt="Discord">
   </a>
 </div>
 

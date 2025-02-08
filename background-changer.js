@@ -13,11 +13,11 @@ function preloadImages(array, callback) {
 }
 
 const backgrounds = [
-  'https://i.ibb.co/SxC4wcC/background.png',
-  'https://i.ibb.co/RYq1nnt/background2.png',
-  'https://i.ibb.co/ZHz8dxY/background1.png',
-  'https://i.ibb.co/3NZRjwv/background3.png',
-  'https://i.ibb.co/vhNWtQD/background4.png'
+  'https://files.catbox.moe/sb6afs.png',
+  'https://files.catbox.moe/q3lwub.png',
+  'https://files.catbox.moe/ebwgnk.png',
+  'https://files.catbox.moe/ev0jzu.png',
+  'https://files.catbox.moe/jvji2u.png'
 ];
 
 let current = 0;
