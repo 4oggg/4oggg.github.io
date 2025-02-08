@@ -25,7 +25,7 @@ html, body {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center center; /* Center the background image */
+  background-position: center center;
   transition: opacity 2s ease-in-out;
   opacity: 0;
 }
@@ -46,6 +46,14 @@ html, body {
   color: white;
 }
 
+#title-logo {
+  max-width: 500px; /* Adjust size */
+  height: auto;
+  display: block;
+  margin: 10px auto; /* Centering */
+  transition: opacity 0.5s ease;
+}
+
 .faq-container {
   width: 90%;
   max-width: 1200px;
@@ -57,14 +65,9 @@ html, body {
   margin-top: 50px;
 }
 
-.faq .faq-answer {
-  display: none;
-  padding: 20px;
-  margin-top: 10px;
-  word-wrap: break-word;
-  overflow-y: auto;
-  font-weight: 300;
-  font-size: 1.4em;
+.faq-item {
+  width: 100%;
+  text-align: center;
 }
 
 .faq .faq-question {
@@ -74,10 +77,39 @@ html, body {
   transition: background-color 0.3s ease;
   font-weight: 700;
   font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  white-space: nowrap;
 }
 
 .faq .faq-question:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq .faq-answer {
+  display: none;
+  padding: 20px;
+  margin-top: 10px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  font-weight: 300;
+  font-size: 1.4em;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.faq .faq-answer a {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0;
 }
 
 #discord-link, #think-link {
@@ -87,10 +119,6 @@ html, body {
 }
 
 #discord-link {
-  right: 20px;
-}
-
-#think-link {
   left: 20px;
 }
 
@@ -99,7 +127,6 @@ html, body {
   height: auto;
 }
 
-/* Media Queries for mobile responsiveness */
 @media only screen and (max-width: 768px) {
   #title-container h1 {
     font-size: 3em;

@@ -16,7 +16,7 @@
 </div>
 
 <div id="title-container">
-  <h1>OPENFF7R</h1>
+  <img src="https://files.catbox.moe/qhd9te.png" id="title-logo" oncontextmenu="return false;" draggable="false">
 </div>
 
 <div class="faq-container">
@@ -46,7 +46,7 @@
 
 <div id="discord-link">
   <a href="https://discord.gg/v45JRfYTxj" target="_blank">
-    <img src="https://files.catbox.moe/n6x3en.png" alt="Discord">
+    <img src="https://files.catbox.moe/n6x3en.png" alt="Discord" oncontextmenu="return false;" draggable="false">
   </a>
 </div>
 
@@ -56,6 +56,9 @@
 $(document).ready(function(){
   $('.faq-question').click(function(){
     $(this).next('.faq-answer').slideToggle();
+    
+    let allOpen = $('.faq-answer:visible').length === $('.faq-answer').length;
+    $('#title-logo').css('opacity', allOpen ? '0.2' : '1');
   });
 });
 </script>
