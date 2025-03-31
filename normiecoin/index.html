@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NormieCoin ($NORM) - Crypto for Everyone</title>
+    <meta name="description" content="NormieCoin ($NORM) - The first cryptocurrency designed for everyday people. No jargon, no complexity, just gains.">
+    <meta property="og:title" content="NormieCoin ($NORM) - Crypto for Everyone">
+    <meta property="og:description" content="The first cryptocurrency designed for everyday people. Join the revolution!">
+    <meta property="og:image" content="https://normiecoin.com/og-image.jpg">
+    <meta property="og:url" content="https://normiecoin.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="notification-banner">
+        <div class="container">
+            <p>🔥 <span id="fake-visitors">237</span> people are viewing this page right now! Presale starting soon!</p>
+            <button class="close-notification">×</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="emoji">🤔</span> NormieCoin
+                </div>
+                <div class="menu">
+                    <a href="#about">About</a>
+                    <a href="#tokenomics">Tokenomics</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#team">Team</a>
+                    <button class="connect-wallet">Connect Wallet</button>
+                </div>
+            </nav>
+            
+            <div class="hero">
+                <h1>The First Cryptocurrency for <span class="highlight">Cult Members</span></h1>
+                <p>Feel like making some money?</p>
+                <div class="countdown-container">
+                    <p>Public sale Begins In:</p>
+                    <div class="countdown">
+                        <div class="time-segment">
+                            <span id="days">00</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="time-segment">
+                            <span id="hours">00</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="time-segment">
+                            <span id="minutes">00</span>
+                            <span class="label">Minutes</span>
+                        </div>
+                        <div class="time-segment">
+                            <span id="seconds">00</span>
+                            <span class="label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="presale-btn">Pre-register</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-box">
+                <h3>Current Price</h3>
+                <div class="price">
+                    <span id="current-price">$1.15</span>
+                    <span class="change positive" id="price-change">+12.8%</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <h3>Market Cap</h3>
+                <div class="value" id="market-cap">$483,546,004</div>
+            </div>
+            <div class="stat-box">
+                <h3>24h Volume</h3>
+                <div class="value" id="volume">$28,419,201</div>
+            </div>
+            <div class="stat-box">
+                <h3>Holders</h3>
+                <div class="value" id="holders">13,197</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart-section">
+    <div class="container">
+        <h2>Price Chart</h2>
+        <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About NormieCoin</h2>
+            <p>NormieCoin is your opportunity to say "goodbye" to financial security and "hello" to volatility. We're focused on one thing: <span class="highlight">wealth consolidation</span>.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>For Everyone</h3>
+                    <p>No promises. No idea what we're doing. No plans to stop anytime soon.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Community Owned</h3>
+                    <p>Everything you buy, you own. We'll sell you as much as you want, so really you could own the whole thing!</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Deflationary</h3>
+                    <p>2% of every transaction is burned, because nothing says "currency of the future" like being disincentivized to ever spend it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics-grid">
+                <div class="tokenomics-info">
+                    <div class="token-stat">
+                        <h3>Token Symbol</h3>
+                        <p>$NORM</p>
+                    </div>
+                    <div class="token-stat">
+                        <h3>Total Supply</h3>
+                        <p>1,000,000,000</p>
+                    </div>
+                    <div class="token-stat">
+                        <h3>Circulating Supply</h3>
+                        <p>750,000,000</p>
+                    </div>
+                    <div class="token-stat">
+                        <h3>Transaction Fee</h3>
+                        <p>5% (2% Burn, 1% Reflection, 2% Marketing)</p>
+                    </div>
+                </div>
+                <div class="tokenomics-chart">
+                    <canvas id="tokenomicsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <div class="quarter">Q1 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Launch Phase</h3>
+                        <ul>
+                            <li>April 1, 2025: Official Launch Day</li>
+                            <li>Website & Platform Launch</li>
+                            <li>Initial DEX Offering</li>
+                            <li>CoinGecko & CoinMarketCap Listings</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="quarter">Q2 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Growth Phase</h3>
+                        <ul>
+                            <li>CEX Listings</li>
+                            <li>Mobile App Beta</li>
+                            <li>Partnership Announcements</li>
+                            <li>Marketing Campaign</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="quarter">Q3 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Expansion Phase</h3>
+                        <ul>
+                            <li>Normie NFT Collection</li>
+                            <li>Staking Platform</li>
+                            <li>Cross-chain Bridge</li>
+                            <li>Influencer Marketing Push</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="quarter">Q4 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Utility Phase</h3>
+                        <ul>
+                            <li>Normie Metaverse</li>
+                            <li>Governance Token</li>
+                            <li>DAO Implementation</li>
+                            <li>Major CEX Listings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-icon">👑</div>
+                    <h3>NORMIE</h3>
+                    <div class="role">Founder & Lead Visionary</div>
+                    <p>Pioneering the normie revolution in crypto since before it was cool.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-icon">🧠</div>
+                    <h3>JESSIE RASBERRRY</h3>
+                    <div class="role">Chief Technical Officer</div>
+                    <p>Blockchain developer extraordinaire with a passion for accessible tech.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-icon">⚔️</div>
+                    <h3>CECIL HARVEY</h3>
+                    <div class="role">Strategic Partnerships</div>
+                    <p>Forging alliances across the cryptosphere to bring NormieCoin to the masses.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-icon">🔬</div>
+                    <h3>NEOCORTEX</h3>
+                    <div class="role">Tokenomics Architect</div>
+                    <p>The brilliant mind behind our innovative token distribution model.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-icon">🔊</div>
+                    <h3>RAY COOPER</h3>
+                    <div class="role">Community Manager</div>
+                    <p>Keeping the community engaged and excited about the future of NormieCoin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="quote">"Finally a crypto that doesn't shame me for being an idiot! NormieCoin is the first token I actually understand."</div>
+                    <div class="author">
+                        <div class="author-emoji">👨‍💼</div>
+                        <div class="author-info">
+                            <div class="author-name">@CryptoNewbie42</div>
+                            <div class="author-title">Early Investor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"I showed NormieCoin to my grandma and even she bought some. Mass adoption incoming!"</div>
+                    <div class="author">
+                        <div class="author-emoji">👩‍🎓</div>
+                        <div class="author-info">
+                            <div class="author-name">@BlockchainBabe</div>
+                            <div class="author-title">Crypto Influencer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"The team behind NormieCoin actually responds to questions without using words I need to Google. 10/10 would recommend."</div>
+                    <div class="author">
+                        <div class="author-emoji">🧔</div>
+                        <div class="author-info">
+                            <div class="author-name">@DeFiDude</div>
+                            <div class="author-title">Community Member</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="container">
+            <h2>Partners & Investors</h2>
+            <div class="partners-grid">
+                <div class="partner">
+                    <div style="font-weight: bold; font-size: 1.2rem; color: #1652f0;">Coynbaise</div>
+                </div>
+                <div class="partner">
+                    <div style="font-weight: bold; font-size: 1.2rem; color: #F0B90B;">BinanceVenture</div>
+                </div>
+                <div class="partner">
+                    <div style="font-weight: bold; font-size: 1.2rem; color: #627EEA;">Fundamental Labs</div>
+                </div>
+                <div class="partner">
+                    <div style="font-weight: bold; font-size: 1.2rem; color: #8247E5;">Polyswarm</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes NormieCoin different from other cryptocurrencies?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unlike other cryptocurrencies that is based on complex technical innovations, NormieCoin is simply based.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I buy NormieCoin?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once the coin launches, you'll be able to connect your wallet on our website and purchase $NORM directly. Alternatively, send cash to our listed address and someone will eventually contact you.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is the team doxxed?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No! Are you out of your mind?</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's with the thinking emoji?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Frankly, we're still wondering about that too!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>When moon? When lambo?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>That depends on several factors. Did you buy in early? Lambo soon. Did you buy in late? Job applications soon. 😉</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is the contract audited?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our smart contract has been audited by CertiK and PeckShield, with zero critical vulnerabilities found. We can also guarantee an IRS audit within the calendar year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="emoji">🤔</span> NormieCoin
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Telegram</a>
+                    <a href="#" class="social-icon">Discord</a>
+                    <a href="#" class="social-icon">Medium</a>
+                    <a href="#" class="social-icon">GitHub</a>
+                </div>
+                <div class="copyright">
+                    © 2025 NormieCoin. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed-cta">
+        <button class="buy-button">
+            <span class="pulse"></span>
+            Buy $NORM
+        </button>
+    </div>
+
+    <!-- April Fools Reveal (hidden by default) -->
+    <div class="april-fools-reveal">
+        <div class="reveal-content">
+            <span class="emoji">🤔→😂</span>
+            <h2>April Fools!</h2>
+            <p>NormieCoin isn't real... but I'll still take your money!</p>
+            <p>Thanks for being part of this year's OpenFF7R's April Fools joke.</p>
+            <button class="close-reveal">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
