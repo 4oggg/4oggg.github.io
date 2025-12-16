@@ -1,236 +1,199 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-    overflow-y: auto;
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #background-holder {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: black;
 }
 
 .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    transition: opacity 2s ease-in-out;
-    opacity: 0;
-}
-
-#title-container {
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 2%;
-    z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  /* Center the background image */
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+  filter: brightness(0.40);
 }
 
 #title-container h1 {
-    font-weight: bold;
-    font-size: 5em;
-    color: white;
+  display: none;
+  /* Hide original text if it remains, or remove rule if element is gone */
 }
 
-#title-logo {
-    max-width: 500px;
-    width: 90%;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    transition: opacity 0.5s ease;
+#title-container {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 50px;
+  /* Increased top margin for logo */
+  z-index: 2;
 }
 
 .faq-container {
-    width: 90%;
-    max-width: 1200px;
-    min-height: auto;
-    box-sizing: border-box;
-    padding: 20px;
-    z-index: 2;
-    position: relative;
-    margin-top: 120px;
-    margin-bottom: 80px;
-}
-
-.faq-item {
-    width: 100%;
-    text-align: center;
-}
-
-.faq .faq-question {
-    cursor: pointer;
-    padding: 15px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-    font-weight: 700;
-    font-size: 1.4em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    min-height: 50px;
-    white-space: normal;
-}
-
-.faq .faq-question:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  min-height: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  z-index: 2;
+  position: relative;
+  margin-top: 50px;
 }
 
 .faq .faq-answer {
-    display: none;
-    padding: 20px;
-    margin-top: 10px;
-    word-wrap: break-word;
-    overflow-y: auto;
-    font-weight: 300;
-    font-size: 1.4em;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  padding: 0 20px;
+  margin-top: 0;
+  word-wrap: break-word;
+  font-weight: 300;
+  font-size: 1.4em;
+  text-align: center;
 }
 
-.faq .faq-answer a {
-    display: inline-block;
-    position: relative;
-    margin: 5px 0;
+.faq .faq-answer.active {
+  max-height: 1000px;
+  /* Arbitrary large height for transition */
+  opacity: 1;
+  padding: 20px;
+  margin-top: 10px;
 }
 
-#discord-link, #think-link {
-    position: fixed;
-    bottom: 20px;
-    z-index: 3;
+.faq .faq-question {
+  cursor: pointer;
+  padding: 20px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.faq .faq-question:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#discord-link,
+#think-link {
+  position: fixed;
+  bottom: 20px;
+  z-index: 3;
 }
 
 #discord-link {
-    left: 20px;
+  right: 20px;
 }
 
-#discord-link img, #think-link img {
-    width: 50px;
-    height: auto;
+#think-link {
+  left: 20px;
 }
 
-a {
-    color: #ffffff;
-    text-decoration: underline;
-    margin: 10px 0;
+#discord-link img,
+#think-link img {
+  width: 50px;
+  height: auto;
+  transition: transform 0.2s ease;
 }
 
+#discord-link img:hover,
+#think-link img:hover {
+  transform: scale(1.2);
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.main-logo {
+  max-width: 80%;
+  height: auto;
+  width: 600px;
+  /* Adjust base width as needed */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+/* Media Queries for mobile responsiveness */
 @media only screen and (max-width: 768px) {
-    body {
-        padding: 20px 0;
-    }
+  #title-container h1 {
+    font-size: 3em;
+  }
 
-    #title-container {
-        margin-top: 20px;
-    }
+  .faq-container {
+    width: 95%;
+    padding: 15px;
+  }
 
-    #title-logo {
-        max-width: 80%;
-    }
+  .faq .faq-question,
+  .faq .faq-answer {
+    font-size: 1.2em;
+    padding: 15px;
+  }
 
-    .faq-container {
-        margin-top: 100px;
-        width: 95%;
-        padding: 10px;
-    }
-
-    .faq .faq-question {
-        font-size: 1.2em;
-        padding: 12px;
-        white-space: normal;
-    }
-
-    .faq .faq-answer {
-        font-size: 1.1em;
-        padding: 12px;
-    }
-
-    #discord-link {
-        left: 10px;
-        bottom: 10px;
-    }
-
-    #discord-link img {
-        width: 40px;
-    }
+  #discord-link img,
+  #think-link img {
+    width: 40px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    body {
-        padding: 15px 0;
-    }
+  #title-container h1 {
+    font-size: 2.5em;
+  }
 
-    #title-container {
-        margin-top: 10px;
-    }
+  .faq-container {
+    width: 100%;
+    padding: 10px;
+  }
 
-    #title-logo {
-        max-width: 90%;
-    }
+  .faq .faq-question,
+  .faq .faq-answer {
+    font-size: 1em;
+    padding: 10px;
+  }
 
-    .faq-container {
-        margin-top: 80px;
-        width: 100%;
-        padding: 8px;
-    }
-
-    .faq .faq-question {
-        font-size: 1em;
-        padding: 10px;
-    }
-
-    .faq .faq-answer {
-        font-size: 0.9em;
-        padding: 10px;
-    }
-
-    #discord-link {
-        left: 5px;
-        bottom: 5px;
-    }
-
-    #discord-link img {
-        width: 35px;
-    }
+  #discord-link img,
+  #think-link img {
+    width: 35px;
+  }
 }
 
-@media screen and (max-height: 600px) and (orientation: landscape) {
-    #title-logo {
-        max-width: 300px;
-    }
+a {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 10px 0;
+}
 
-    .faq-container {
-        margin-top: 60px;
-    }
+/* Custom Text Selection */
+::selection {
+  background: #ffffff;
+  color: #222222;
+}
 
-    .faq .faq-question {
-        font-size: 1em;
-        padding: 8px;
-    }
-
-    .faq .faq-answer {
-        font-size: 0.9em;
-        padding: 8px;
-    }
+::-moz-selection {
+  background: #ffffff;
+  color: #222222;
 }

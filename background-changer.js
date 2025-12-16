@@ -13,11 +13,17 @@ function preloadImages(array, callback) {
 }
 
 const backgrounds = [
-  'https://files.catbox.moe/sb6afs.png',
-  'https://files.catbox.moe/q3lwub.png',
-  'https://files.catbox.moe/ebwgnk.png',
-  'https://files.catbox.moe/ev0jzu.png',
-  'https://files.catbox.moe/jvji2u.png'
+  'images/bg1.png',
+  'images/bg2.png',
+  'images/bg3.png',
+  'images/bg4.png',
+  'images/bg5.png',
+  'images/bg6.png',
+  'images/bg7.png',
+  'images/bg8.png',
+  'images/bg9.png',
+  'images/bg10.png',
+  'images/bg11.png'
 ];
 
 let current = 0;
@@ -30,7 +36,7 @@ bg2.style.opacity = '0'; // Second background ready but not visible
 function changeBackground() {
   const nextIndex = (current + 1) % backgrounds.length;
   const nextBg = backgrounds[nextIndex];
-  
+
   if (bg1.style.opacity == '1') {
     bg2.style.backgroundImage = `url(${nextBg})`;
     bg2.style.opacity = '1';
@@ -40,7 +46,7 @@ function changeBackground() {
     bg1.style.opacity = '1';
     bg2.style.opacity = '0';
   }
-  
+
   current = nextIndex;
 }
 

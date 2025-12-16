@@ -1,111 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenFF7R</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
-<style>
-#x-link {
-position: fixed;
-bottom: 20px;
-right: 20px;
-z-index: 3;
-}
-#x-link img {
-width: 40px;
-height: auto;
-}
-@media only screen and (max-width: 768px) {
-#x-link {
-right: 10px;
-bottom: 10px;
-}
-#x-link img {
-width: 40px;
-}
-}
-@media only screen and (max-width: 480px) {
-#x-link {
-right: 5px;
-bottom: 5px;
-}
-#x-link img {
-width: 35px;
-}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenFF7R</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+  <div id="background-holder">
+    <div id="bg1" class="background"></div>
+    <div id="bg2" class="background"></div>
+  </div>
 
-<div id="background-holder">
-<div id="bg1" class="background"></div>
-<div id="bg2" class="background"></div>
-</div>
+  <div id="title-container">
+    <img src="images/logo.png" alt="OpenFF7R" class="main-logo" draggable="false">
+  </div>
 
+  <div class="faq-container">
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0">What is OpenFF7R?</div>
+        <div class="faq-answer">OpenFF7R is a project centered on modding the Final Fantasy 7 "Remake" series,
+          colloquially referred to as the 7R series. We strive to ensure that all of our modding knowledge is freely
+          accessible, hence the open nature of the project.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0">How do I access OpenFF7R?</div>
+        <div class="faq-answer">In order to join our community, you can join our <a href="https://discord.gg/v45JRfYTxj"
+            target="_blank">server</a>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0">What can I expect?</div>
+        <div class="faq-answer">In the OpenFF7R server, we predictably discuss the Final Fantasy games. However, we also
+          frequently engage in conversations about movies, TV shows, music, and technology. We try our best to foster a
+          curious and inquisitive community, never afraid to discover something new!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0">Can I learn how to mod?</div>
+        <div class="faq-answer">Yes! By following the guides created by some of our most valued community members, you
+          can (with the proper amount of dedication) learn everything you need to know.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0">Are the Playstation releases able to be modded?</div>
+        <div class="faq-answer">Unfortunately, the modding scene for console releases is fairly limited. We focus on the
+          PC releases, which offer many more options for modding.</div>
+      </div>
+    </div>
+  </div>
 
-<div id="title-container">
-<img src="https://files.catbox.moe/qhd9te.png" id="title-logo" oncontextmenu="return false;" draggable="false">
-</div>
+  <div id="discord-link">
+    <a href="https://discord.gg/v45JRfYTxj" target="_blank">
+      <img src="images/discord-icon.png" alt="Discord" draggable="false">
+    </a>
+  </div>
 
+  <script src="background-changer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Prevent right-click on images
+      document.addEventListener('contextmenu', (e) => {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+        }
+      });
 
-<div class="faq-container">
-<div class="faq">
-<div class="faq-item">
-<div class="faq-question">What is OpenFF7R?</div>
-<div class="faq-answer">OpenFF7R is a project centered on modding the Final Fantasy 7 "Remake" series, colloquially referred to as the 7R series. We strive to ensure that all of our modding knowledge is freely accessible, hence the open nature of the project.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">How do I access OpenFF7R?</div>
-<div class="faq-answer">In order to join our community, you can join our <a href="https://discord.gg/v45JRfYTxj" target="_blank">server</a>.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">What can I expect?</div>
-<div class="faq-answer">In the OpenFF7R server, we predictably discuss the Final Fantasy games. However, we also frequently engage in conversations about movies, TV shows, music, and technology. We try our best to foster a curious and inquisitive community, never afraid to discover something new!</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Can I learn how to mod?</div>
-<div class="faq-answer">Yes! By following the guides created by some of our most valued community members, you can (with the proper amount of dedication) learn everything you need to know.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">Are the Playstation releases able to be modded?</div>
-<div class="faq-answer">Unfortunately, the modding scene for console releases is fairly limited. We focus on the PC releases, which offer many more options for modding.</div>
-</div>
-</div>
-</div>
+      // Prevent dragging on images
+      document.addEventListener('dragstart', (e) => {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+        }
+      });
 
+      const questions = document.querySelectorAll('.faq-question');
 
-<div id="discord-link">
-<a href="https://discord.gg/v45JRfYTxj" target="_blank">
-<img src="https://files.catbox.moe/n6x3en.png" alt="Discord" oncontextmenu="return false;" draggable="false">
-</a>
-</div>
+      questions.forEach(question => {
+        // Click event
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          answer.classList.toggle('active');
+        });
 
+        // Keyboard accessibility
+        question.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); // Prevent page scroll on space
+            const answer = question.nextElementSibling;
+            answer.classList.toggle('active');
+          }
+        });
+      });
+    });
 
-<div id="x-link">
-<a href="https://x.com/OpenFF7R_" target="_blank">
-<img src="x-logo.png" alt="X" oncontextmenu="return false;" draggable="false">
-</a>
-</div>
-
-
-<script src="background-changer.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function(){
-$('.faq-question').click(function(){
-$(this).next('.faq-answer').slideToggle();
-
-
-let allOpen = $('.faq-answer:visible').length === $('.faq-answer').length;
-$('#title-logo').css('opacity', allOpen ? '0.2' : '1');
-});
-});
-</script>
-
+  </script>
 
 </body>
+
 </html>
