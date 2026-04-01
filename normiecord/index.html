@@ -867,6 +867,439 @@
       background: #5C5F66;
     }
 
+    /* ===== SERVER VIEW ===== */
+    #server-view {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      flex-direction: column;
+      font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .srv-error-banner {
+      background: #b5272b;
+      color: #fff;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .srv-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Server pill list */
+    .srv-servers {
+      width: 72px;
+      background: #1E1F22;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 0;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .srv-server-pill {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-radius 0.15s;
+    }
+
+    .srv-server-pill.active {
+      border-radius: 16px;
+    }
+
+    .srv-server-pill img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .srv-server-sep {
+      width: 32px;
+      height: 2px;
+      background: #35373C;
+      border-radius: 1px;
+    }
+
+    /* Channel sidebar */
+    .srv-channels {
+      width: 240px;
+      background: #2B2D31;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .srv-server-header {
+      height: 48px;
+      border-bottom: 1px solid #1E1F22;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 6px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .srv-server-header-name {
+      color: #F2F3F5;
+      font-weight: 700;
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .srv-channel-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+    }
+
+    .srv-channel-list::-webkit-scrollbar { width: 4px; }
+    .srv-channel-list::-webkit-scrollbar-thumb { background: #1E1F22; border-radius: 2px; }
+
+    .srv-cat-label {
+      color: #949BA4;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px 8px 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .srv-channel {
+      display: flex;
+      align-items: center;
+      padding: 6px 8px;
+      margin: 1px 8px;
+      border-radius: 4px;
+      gap: 6px;
+      cursor: pointer;
+      color: #949BA4;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    .srv-channel:hover:not(.locked) {
+      background: rgba(255,255,255,0.06);
+      color: #DBDEE1;
+    }
+
+    .srv-channel.active {
+      background: #404249;
+      color: #F2F3F5;
+    }
+
+    .srv-channel.locked {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .srv-ch-icon {
+      font-size: 15px;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* Self user area */
+    .srv-user-area {
+      height: 52px;
+      background: #232428;
+      border-top: 1px solid #1E1F22;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .srv-self-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4E5058;
+      flex-shrink: 0;
+    }
+
+    .srv-self-info { flex: 1; }
+
+    .srv-self-name {
+      color: #F2F3F5;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .srv-self-tag {
+      color: #949BA4;
+      font-size: 11px;
+    }
+
+    .srv-self-btn {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: #35373C;
+      flex-shrink: 0;
+    }
+
+    /* Main chat */
+    .srv-main {
+      flex: 1;
+      background: #313338;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .srv-chat-header {
+      height: 48px;
+      border-bottom: 1px solid #1E1F22;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .srv-chat-header-icon { color: #949BA4; font-size: 20px; font-weight: 700; }
+    .srv-chat-header-name { color: #F2F3F5; font-weight: 700; font-size: 15px; }
+
+    .srv-chat-header-sep {
+      width: 1px;
+      height: 20px;
+      background: #3F4147;
+    }
+
+    .srv-chat-header-topic {
+      color: #949BA4;
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .srv-chat-header-icons {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .srv-header-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: #35373C;
+    }
+
+    /* Messages */
+    .srv-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0 16px;
+    }
+
+    .srv-messages::-webkit-scrollbar { width: 8px; }
+    .srv-messages::-webkit-scrollbar-track { background: #2E3035; }
+    .srv-messages::-webkit-scrollbar-thumb { background: #1E1F22; border-radius: 4px; }
+
+    .srv-date-divider {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 16px 8px;
+    }
+
+    .srv-date-line { flex: 1; height: 1px; background: #3F4147; }
+
+    .srv-date-text {
+      color: #949BA4;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .srv-msg-group {
+      padding: 2px 16px;
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .srv-msg-group:hover,
+    .srv-msg-cont:hover {
+      background: rgba(0,0,0,0.06);
+    }
+
+    .srv-msg-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .srv-msg-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .srv-msg-body { flex: 1; min-width: 0; }
+
+    .srv-msg-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .srv-msg-name {
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .srv-msg-name:hover { text-decoration: underline; }
+
+    .srv-msg-time {
+      color: #949BA4;
+      font-size: 11px;
+    }
+
+    .srv-msg-text {
+      color: #DBDEE1;
+      font-size: 15px;
+      line-height: 1.375;
+      word-wrap: break-word;
+    }
+
+    .srv-msg-cont {
+      padding: 2px 16px 2px 72px;
+    }
+
+    .srv-msg-cont .srv-msg-text {
+      color: #DBDEE1;
+      font-size: 15px;
+      line-height: 1.375;
+    }
+
+    .srv-attachment {
+      margin-top: 8px;
+      display: inline-block;
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 400px;
+      cursor: pointer;
+    }
+
+    .srv-attachment img {
+      display: block;
+      max-width: 400px;
+      max-height: 300px;
+      border-radius: 4px;
+    }
+
+    /* Read-only input */
+    .srv-input-area {
+      padding: 0 16px 24px;
+      flex-shrink: 0;
+    }
+
+    .srv-input-box {
+      background: #383A40;
+      border-radius: 8px;
+      padding: 11px 16px;
+      color: #6D6F78;
+      font-size: 15px;
+      font-family: inherit;
+      cursor: not-allowed;
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+
+    /* Member list */
+    .srv-members {
+      width: 240px;
+      background: #2B2D31;
+      flex-shrink: 0;
+      overflow-y: auto;
+      padding: 0 8px 8px;
+    }
+
+    .srv-members::-webkit-scrollbar { width: 4px; }
+    .srv-members::-webkit-scrollbar-thumb { background: #1E1F22; border-radius: 2px; }
+
+    .srv-member-category {
+      color: #949BA4;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 16px 8px 4px;
+    }
+
+    .srv-member {
+      display: flex;
+      align-items: center;
+      padding: 6px 8px;
+      border-radius: 4px;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .srv-member:hover { background: rgba(255,255,255,0.06); }
+
+    .srv-member-avatar {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .srv-member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .srv-member-avatar::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #23A559;
+      border: 2px solid #2B2D31;
+    }
+
+    .srv-member-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
     @media (max-width: 520px) {
       .modal {
         padding: 24px 18px;
@@ -1198,7 +1631,7 @@
         <div class="checkbox-row">
           <input type="checkbox" id="tos">
           <label for="tos" class="checkbox-label">
-            By registering, you agree to Normiecord's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            By registering, you agree to Normiecord's <a href="#" id="link-tos">Terms of Service</a> and <a href="#" id="link-privacy">Privacy Policy</a>.
           </label>
         </div>
 
@@ -1225,6 +1658,9 @@
           <strong>FeetID™</strong> — our proprietary biometric verification platform. Simply upload a clear photo
           of your feet to confirm your identity and complete registration.
         </p>
+        <p class="verification-desc" style="margin-top:8px; padding:8px 10px; background:rgba(35,165,89,0.1); border-radius:4px; border-left:3px solid #23A559;">
+          🔒 <strong style="color:#23A559;">Privacy Notice:</strong> Submitted photos are encrypted in transit and are <strong style="color:#DBDEE1;">never stored or retained</strong> on our servers following verification.
+</p>
         <div class="upload-area" id="upload-area">
           <input type="file" id="feet-photo" accept="image/*" aria-label="Upload feet photo">
           <div class="upload-icon" id="upload-icon">📷</div>
@@ -1258,8 +1694,8 @@
         </p>
         <div class="result-note">
           <strong>Don't worry!</strong> Your submission has been securely received and forwarded to our dedicated
-          <strong>Manual Feet Review Team</strong>. One of our specialists will personally and thoroughly examine
-          your photo within <strong>3–5 business days</strong>. We appreciate your patience, and your feet.
+          <strong>Manual Feet Review Team</strong>. The manual review process is currently underway and is
+          expected to be completed by <strong>3:00 PM EST</strong>. We encourage you to check back then!
         </div>
         <a href="https://openff7r.com/" class="btn-secondary">Return to OpenFF7R →</a>
       </div>
@@ -1267,7 +1703,678 @@
 
   </div>
 
+  <!-- Disclaimer popup -->
+  <div id="disclaimer-overlay" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;">
+    <div style="background:#2B2D31; border-radius:8px; padding:28px 32px; max-width:420px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,0.5); position:relative;">
+      <div style="font-size:28px; margin-bottom:12px;">😄</div>
+      <div style="color:#F2F3F5; font-size:18px; font-weight:700; margin-bottom:12px;">April Fools!</div>
+      <div style="color:#DBDEE1; font-size:14px; line-height:1.6; margin-bottom:20px;">
+        This page is a joke created for the <strong style="color:#F2F3F5;">OpenFF7R</strong> community's April Fools prank.
+        There is no real "Normiecord" platform, no FeetID™ verification system, and <strong style="color:#F2F3F5;">absolutely no data of any kind is collected, stored, or transmitted</strong> — not your email, not your password, and certainly not any photos you may have uploaded.
+        <br><br>
+        Everything on this page is purely for comedic effect. Happy April Fools! 🎉
+      </div>
+      <button id="disclaimer-close" style="background:#5865F2; color:#fff; border:none; border-radius:4px; padding:10px 24px; font-size:15px; font-family:inherit; cursor:pointer; width:100%;">Got it!</button>
+    </div>
+  </div>
+
+  <!-- ===== SERVER VIEW (shown after 3pm EST) ===== -->
+  <div id="server-view">
+    <div class="srv-error-banner">
+      ⚠️ <strong>DATABASE ERROR</strong> — Due to an unexpected misconfiguration, some server contents are temporarily exposed. Our engineers have been notified and are working to resolve the issue.
+    </div>
+    <div class="srv-layout">
+
+      <!-- Server pill list -->
+      <div class="srv-servers">
+        <div class="srv-server-pill active" style="background:#5865F2;"></div>
+        <div class="srv-server-sep"></div>
+        <div class="srv-server-pill" style="background:#ED4245;"></div>
+        <div class="srv-server-pill" style="background:#23A559;"></div>
+        <div class="srv-server-pill" style="background:#F0B132;"></div>
+        <div class="srv-server-pill" style="background:#EB459E;"></div>
+      </div>
+
+      <!-- Channel sidebar -->
+      <div class="srv-channels">
+        <div class="srv-server-header">
+          <span class="srv-server-header-name">OpenFF7R</span>
+          <span style="color:#949BA4;font-size:13px;">▾</span>
+        </div>
+        <div class="srv-channel-list">
+          <div class="srv-cat-label">▾ &nbsp;Information</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> announcements</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> rules</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> roles</div>
+
+          <div class="srv-cat-label">▾ &nbsp;Text Channels</div>
+          <div class="srv-channel active"><span class="srv-ch-icon">#</span> mod-chat</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> general</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> ff7-remake</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> ff7-rebirth</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> modding</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> technology</div>
+		  <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> tv-and-movies</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> music</div>
+		  <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> vidya</div>
+
+
+          <div class="srv-cat-label">▾ &nbsp;Voice Channels</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> General Voice</div>
+          <div class="srv-channel locked"><span class="srv-ch-icon">🔒</span> Modding Voice</div>
+        </div>
+        <div class="srv-user-area">
+          <div class="srv-self-avatar"></div>
+          <div class="srv-self-info">
+            <div class="srv-self-name">Guest</div>
+            <div class="srv-self-tag">Database Error</div>
+          </div>
+          <div class="srv-self-btn"></div>
+        </div>
+      </div>
+
+      <!-- Main chat -->
+      <div class="srv-main">
+        <div class="srv-chat-header">
+          <span class="srv-chat-header-icon">#</span>
+          <span class="srv-chat-header-name">mod-chat</span>
+          <div class="srv-chat-header-sep"></div>
+          <span class="srv-chat-header-topic">Staff only — do not share contents of this channel</span>
+          <div class="srv-chat-header-icons">
+            <div class="srv-header-btn"></div>
+            <div class="srv-header-btn"></div>
+            <div class="srv-header-btn"></div>
+          </div>
+        </div>
+
+        <div class="srv-messages" id="srv-messages">
+          <div class="srv-date-divider">
+            <div class="srv-date-line"></div>
+            <span class="srv-date-text">April 1, 2026</span>
+            <div class="srv-date-line"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:31 PM</span>
+              </div>
+              <div class="srv-msg-text">alright the submissions are coming in, these idiots actually trust us</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:31 PM</span>
+              </div>
+              <div class="srv-msg-text">oh this is going to be a long day</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">I can already tell</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:32 PM</span>
+              </div>
+              <div class="srv-msg-text">holy shit look at this guy</div>
+              <div class="srv-attachment"><img src="feet-pics/GrossSocks.jpg" alt="submission"></div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:32 PM</span>
+              </div>
+              <div class="srv-msg-text">Oh my god</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">are those SOCKS</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:33 PM</span>
+              </div>
+              <div class="srv-msg-text">the guidelines literally say no socks</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:33 PM</span>
+              </div>
+              <div class="srv-msg-text">literally the first rule</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:33 PM</span>
+              </div>
+              <div class="srv-msg-text">dumbfuck, denied</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">next</div></div>
+          <div class="srv-msg-cont">
+            <div class="srv-attachment"><img src="feet-pics/Bigfoot.jpg" alt="submission"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:35 PM</span>
+              </div>
+              <div class="srv-msg-text">...</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:35 PM</span>
+              </div>
+              <div class="srv-msg-text">I kinda expected this</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:36 PM</span>
+              </div>
+              <div class="srv-msg-text">Who actually submits this?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:36 PM</span>
+              </div>
+              <div class="srv-msg-text">we need to find out who sent this one, maybe ask like we think it's funny and then nuke em</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">start off strong</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:37 PM</span>
+              </div>
+              <div class="srv-msg-text">💀</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:37 PM</span>
+              </div>
+              <div class="srv-msg-text">lmao</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont">
+            <div class="srv-attachment"><img src="feet-pics/QuiteHairy.jpg" alt="submission"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:38 PM</span>
+              </div>
+              <div class="srv-msg-text">oh</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:38 PM</span>
+              </div>
+              <div class="srv-msg-text">that is... a lot of hair</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:39 PM</span>
+              </div>
+              <div class="srv-msg-text">who is this caveman wtf</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:39 PM</span>
+              </div>
+              <div class="srv-msg-text">I think I might have an idea</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">guess I'll approve it tho</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:40 PM</span>
+              </div>
+              <div class="srv-msg-text">How you are serious?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:40 PM</span>
+              </div>
+              <div class="srv-msg-text">listen I don't make the rules, except the ones that I did but who's counting?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">next</div></div>
+          <div class="srv-msg-cont">
+            <div class="srv-attachment"><img src="feet-pics/Notbad.jpg" alt="submission"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:42 PM</span>
+              </div>
+              <div class="srv-msg-text">okay finally a good one</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:42 PM</span>
+              </div>
+              <div class="srv-msg-text">👀</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:42 PM</span>
+              </div>
+              <div class="srv-msg-text">Seems someone normal</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:43 PM</span>
+              </div>
+              <div class="srv-msg-text">yeah no complaints there</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">turns out it's not so hard after all</div></div>
+          <div class="srv-msg-cont"><div class="srv-msg-text">next</div></div>
+          <div class="srv-msg-cont">
+            <div class="srv-attachment"><img src="feet-pics/Cutie.jpg" alt="submission"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:44 PM</span>
+              </div>
+              <div class="srv-msg-text">face reveal?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:44 PM</span>
+              </div>
+              <div class="srv-msg-text">wait who is this?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:45 PM</span>
+              </div>
+              <div class="srv-msg-text">I think we all know who it is</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:45 PM</span>
+              </div>
+              <div class="srv-msg-text">YIIS?</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:46 PM</span>
+              </div>
+              <div class="srv-msg-text">please tell me you're saving these</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:46 PM</span>
+              </div>
+              <div class="srv-msg-text">lol of course</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont">
+            <div class="srv-attachment"><img src="feet-pics/ElleFanning.jpg" alt="submission"></div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:48 PM</span>
+              </div>
+              <div class="srv-msg-text">wait</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">I'm pretty sure this guy just used Elle Fanning's feet</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:48 PM</span>
+              </div>
+              <div class="srv-msg-text">how do you know that's her</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:48 PM</span>
+              </div>
+              <div class="srv-msg-text">trust me, I know</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:49 PM</span>
+              </div>
+              <div class="srv-msg-text">Disgusting!</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:49 PM</span>
+              </div>
+              <div class="srv-msg-text">I say let em in</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:49 PM</span>
+              </div>
+              <div class="srv-msg-text">hey maybe it's actually her</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">denying for now but I'll send a follow up email asking for more pics</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Jessie Rasberry</span>
+                <span class="srv-msg-time">Today at 2:50 PM</span>
+              </div>
+              <div class="srv-msg-text">Can't believe I signed up for this</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Cecil Harvey</span>
+                <span class="srv-msg-time">Today at 2:50 PM</span>
+              </div>
+              <div class="srv-msg-text">I think it's fun!</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:51 PM</span>
+              </div>
+              <div class="srv-msg-text">we need to get our custom emojis back</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:51 PM</span>
+              </div>
+              <div class="srv-msg-text">it's incredible what people will do to talk about mods for these shitty games</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-cont"><div class="srv-msg-text">we could probably make some money off this somehow</div></div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#4264ff;">Neocortex</span>
+                <span class="srv-msg-time">Today at 2:52 PM</span>
+              </div>
+              <div class="srv-msg-text">do you see the database error banner</div>
+            </div>
+          </div>
+
+          <div class="srv-msg-group">
+            <div class="srv-msg-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+            <div class="srv-msg-body">
+              <div class="srv-msg-meta">
+                <span class="srv-msg-name" style="color:#8628a6;">Normie</span>
+                <span class="srv-msg-time">Today at 2:52 PM</span>
+              </div>
+              <div class="srv-msg-text">what the fuck, is the system crashing?</div>
+            </div>
+          </div>
+        </div><!-- end srv-messages -->
+
+        <div class="srv-input-area">
+          <div class="srv-input-box">You are not allowed to send messages in this channel.</div>
+        </div>
+      </div><!-- end srv-main -->
+
+      <!-- Member list -->
+	  
+
+      <div class="srv-members">
+        <div class="srv-member-category">Moderators — 4</div>
+        <div class="srv-member">
+          <div class="srv-member-avatar"><img src="profile-images/Normie.png" alt="Normie"></div>
+          <span class="srv-member-name" style="color:#8628a6;">Normie</span>
+        </div>
+        <div class="srv-member">
+          <div class="srv-member-avatar"><img src="profile-images/Cecil Harvey.png" alt="Cecil Harvey"></div>
+          <span class="srv-member-name" style="color:#4264ff;">Cecil Harvey</span>
+        </div>
+        <div class="srv-member">
+          <div class="srv-member-avatar"><img src="profile-images/Jessie Rasberry.jpg" alt="Jessie Rasberry"></div>
+          <span class="srv-member-name" style="color:#4264ff;">Jessie Rasberry</span>
+        </div>
+        <div class="srv-member">
+          <div class="srv-member-avatar"><img src="profile-images/Neocortex.png" alt="Neocortex"></div>
+          <span class="srv-member-name" style="color:#4264ff;">Neocortex</span>
+        </div>
+      </div>
+
+    </div><!-- end srv-layout -->
+  </div><!-- end server-view -->
+
   <script>
+    // ===== TIME-BASED SERVER VIEW =====
+    function isPastRevealTime() {
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false
+      }).formatToParts(now);
+      const hour = parseInt(parts.find(p => p.type === 'hour').value);
+      return hour >= 15;
+    }
+
+    function activateServerView() {
+      document.getElementById('server-view').style.display = 'flex';
+      document.querySelector('.bg-chat').style.display = 'none';
+      document.querySelector('.modal').style.display = 'none';
+      // Scroll messages to bottom
+      const msgs = document.getElementById('srv-messages');
+      if (msgs) msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function checkRevealTime() {
+      if (isPastRevealTime()) activateServerView();
+    }
+
+    checkRevealTime();
+    const revealInterval = setInterval(() => {
+      if (isPastRevealTime()) {
+        activateServerView();
+        clearInterval(revealInterval);
+      }
+    }, 30000);
+
+    // Disclaimer popup
+    const disclaimerOverlay = document.getElementById('disclaimer-overlay');
+    function showDisclaimer(e) {
+      e.preventDefault();
+      disclaimerOverlay.style.display = 'flex';
+    }
+    document.getElementById('link-tos').addEventListener('click', showDisclaimer);
+    document.getElementById('link-privacy').addEventListener('click', showDisclaimer);
+    document.getElementById('disclaimer-close').addEventListener('click', () => {
+      disclaimerOverlay.style.display = 'none';
+    });
+    disclaimerOverlay.addEventListener('click', (e) => {
+      if (e.target === disclaimerOverlay) disclaimerOverlay.style.display = 'none';
+    });
+
+    // Prevent right-clicking or dragging images (feet pics / profile pics)
+    document.addEventListener('contextmenu', (e) => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+    // ===================================
+
     // Populate Day dropdown
     const daySelect = document.getElementById('dob-day');
     daySelect.innerHTML = '<option value="">Day</option>';
@@ -1396,6 +2503,9 @@
       const year = document.getElementById('dob-year').value;
       if (!month || !day || !year) {
         setError('dob', 'Please provide your full date of birth.');
+        valid = false;
+      } else if (parseInt(year) > 2013) {
+        setError('dob', 'You must be at least 13 years old to register.');
         valid = false;
       }
 
